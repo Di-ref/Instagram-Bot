@@ -25,9 +25,11 @@ class InstaBot():
 
         #### fb login
         email_input = self.driver.find_element_by_xpath('//*[@id="email"]')
+        email_input.clear()
         email_input.send_keys(username)
 
         password_input = self.driver.find_element_by_xpath('//*[@id="pass"]')
+        password_input.clear()
         password_input.send_keys(password)
 
         login_btn = self.driver.find_element_by_xpath('//*[@id="loginbutton"]')
@@ -84,9 +86,11 @@ class InstaBot():
 
         #### login
         email_input = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/main/article/div[2]/div[1]/div/form/div[2]/div/label/input')
+        email_input.clear()
         email_input.send_keys(username)
 
         password_input = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/main/article/div[2]/div[1]/div/form/div[3]/div/label/input')
+        password_input.clear()
         password_input.send_keys(password)
 
         login_btn = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/main/article/div[2]/div[1]/div/form/div[4]/button')
