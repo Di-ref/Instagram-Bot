@@ -82,48 +82,15 @@ class InstaBot():
 
         sleep(10)
 
-        ## instagram home page
-        fb_btn = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/main/article/div[2]/div[1]/div/form/div[6]/button')
-        fb_btn.click()
-
-        #### fb login
-        email_input = self.driver.find_element_by_xpath('//*[@id="email"]')
+        #### login
+        email_input = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/main/article/div[2]/div[1]/div/form/div[2]/div/label/input')
         email_input.send_keys(username)
 
-        password_input = self.driver.find_element_by_xpath('//*[@id="pass"]')
+        password_input = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/main/article/div[2]/div[1]/div/form/div[3]/div/label/input')
         password_input.send_keys(password)
 
-        login_btn = self.driver.find_element_by_xpath('//*[@id="loginbutton"]')
+        login_btn = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/main/article/div[2]/div[1]/div/form/div[4]/button')
         login_btn.click()
-
-        sleep(5)
-
-        """ vkey = input('enter vkey : ')
-
-        vkey_input = self.driver.find_element_by_xpath('//*[@id="approvals_code"]')
-        vkey_input.send_keys(vkey)
-        if (self.check_exists_by_xpath('//*[@id="checkpointSubmitButton"]')):
-            continue_btn = self.driver.find_element_by_xpath('//*[@id="checkpointSubmitButton"]')
-            continue_btn.click()
-
-        sleep(5)
-
-        checkpoint_radio = self.driver.find_element_by_xpath('//*[@id="u_0_3"]')
-        checkpoint_radio.click()
-
-        checkpoint_btn = self.driver.find_element_by_xpath('//*[@id="checkpointSubmitButton"]')
-        checkpoint_btn.click()
-
-        sleep(5) """
-
-        ## go back to instagram again
-
-        self.driver.get('https://instagram.com')
-
-        sleep(5)
-
-        login = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/main/article/div[2]/div[1]/div/div[2]/button')
-        login.click()
 
         sleep(5)
 
@@ -161,12 +128,17 @@ class InstaBot():
         like_btn.click()
 
         sleep (9)
-        while (True):
-            next_btn = self.driver.find_element_by_xpath('/html/body/div[4]/div[1]/div/div/a[2]')
-            next_btn.click()
+        for i in range(50):
+            """ next_btn = self.driver.find_element_by_xpath('/html/body/div[4]/div[1]/div/div/a')
+            next_btn.click() """
+            self.driver.find_element_by_xpath('/html/body/div[4]/div[1]/div/div/a').send_keys('\ue014')
+
+            sleep(2)
 
             like_btn = self.driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/article/div[2]/section[1]/span[1]/button')
             like_btn.click()
+
+            sleep(3)
 
 
 # WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID,"CloseLink"))).click()
